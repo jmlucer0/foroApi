@@ -1,6 +1,4 @@
-package com.forohub.api.DTO;
-
-import com.forohub.api.entity.Topico;
+package com.forohub.api.domain.topico;
 
 public record DatosListaTopico(
         Long id,

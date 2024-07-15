@@ -1,6 +1,6 @@
 package com.forohub.api.repository;
 
-import com.forohub.api.entity.Topico;
+import com.forohub.api.domain.topico.Topico;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,5 @@
-package com.forohub.api.entity;
+package com.forohub.api.domain.topico;
 
-import com.forohub.api.DTO.DatosActualizarTopico;
-import com.forohub.api.DTO.DatosRegistroTopico;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
