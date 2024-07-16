@@ -1,4 +1,4 @@
-package com.forohub.api.infra;
+package com.forohub.api.infra.errores;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class TratadorDeError {
         return ResponseEntity.badRequest().body(errores);
     }
 
-    public record DatosErrorValidacion(String campo, String error){
+    public record DatosErrorValidacion(String atributo, String error){
         public DatosErrorValidacion(FieldError error){
             this(error.getField(), error.getDefaultMessage());
         }
