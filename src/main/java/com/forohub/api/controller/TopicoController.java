@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Optional;
 
 
 @RestController
@@ -49,9 +50,13 @@ public class TopicoController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity borrarTopico(@PathVariable Long id){
-        Topico topico = topicoRepository.getReferenceById(id);
-        topicoRepository.delete(topico);
-        return ResponseEntity.noContent().build();
+        if (topicoRepository.getReferenceById(id) != null && topicoRepository.existsById(id)){
+            Topico topico = topicoRepository.getReferenceById(id);
+            topicoRepository.delete(topico);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+
     }
 
     @GetMapping("/{id}")
@@ -60,4 +65,5 @@ public class TopicoController {
         var datosTopico = new DatosListaTopico(topico);
         return ResponseEntity.ok(datosTopico);
     }
+
 }
